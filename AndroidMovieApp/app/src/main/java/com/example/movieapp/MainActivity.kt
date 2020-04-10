@@ -2,6 +2,7 @@ package com.example.movieapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.movieapp.models.Movie
 
 class MainActivity : AppCompatActivity() {
 
