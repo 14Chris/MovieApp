@@ -30,28 +30,16 @@ class MovieListViewModel : ViewModel() {
     private fun GetPopularMovies(){
         Log.i("GetPopularMovies", "Get popular movies from API!")
 
-//        MovieAppNetwork.movieApi.getPopularMovies().enqueue(object: Callback<List<Movie>>{
-//            override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
-//                _response.value = "Erreur : " + t.message
-//            }
-//
-//            override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
-//                _response.value = "Success"
-//                _movies.value = response.body()
-//
-//                _response.value = _movies.value?.get(0)?.title
-//            }
-//
-//        })
-
         MovieApi.retrofitService.getPopularMovies().enqueue(object: Callback<MovieResponse>{
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                 _response.value = "Erreur : " + t.message
+                Log.i("API Movies error", t.message)
             }
 
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 var responseMovies: MovieResponse = response.body()!!
                 _response.value ="Success : " + responseMovies.results.size.toString() + " elements"
+                Log.i("API Movies size",responseMovies.results.size.toString())
                 _movies.value = responseMovies.results
 
                 _response.value = _movies.value?.get(0)?.title

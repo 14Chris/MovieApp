@@ -3,17 +3,34 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Star Wars"></TextView>
 
     <TextView
+        android:id="@+id/movie_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Star Wars"></TextView>
+        android:textSize="30sp"
+        tools:text="Title"></TextView>
+
+
+    <TextView
+        android:id="@+id/movie_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        tools:text="Duration"></TextView>
+
+    <TextView
+        android:id="@+id/movie_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Date"></TextView>
+
+    <TextView
+        android:id="@+id/movie_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Note"></TextView>
 
 </LinearLayout>
