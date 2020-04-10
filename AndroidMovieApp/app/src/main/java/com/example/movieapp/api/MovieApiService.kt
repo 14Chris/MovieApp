@@ -15,8 +15,8 @@ import retrofit2.http.GET
 import java.io.IOException
 
 
-private const val BASE_URL = "https://api.themoviedb.org/3/"
-private const val API_BEARER_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzVjNjFlOTlkZmUwYjg4NWZkMDViNjY5NzY5ZTU3NCIsInN1YiI6IjVkOGE1ZjhmYWJmOGUyMDAxOTc2ZDFiMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.t52olZ-TumtKW4ofU6wpkRvKDDUAW6d56101hJfEUqQ"
+const val BASE_URL = "https://api.themoviedb.org/3/"
+const val API_BEARER_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzVjNjFlOTlkZmUwYjg4NWZkMDViNjY5NzY5ZTU3NCIsInN1YiI6IjVkOGE1ZjhmYWJmOGUyMDAxOTc2ZDFiMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.t52olZ-TumtKW4ofU6wpkRvKDDUAW6d56101hJfEUqQ"
 
 var client = OkHttpClient.Builder().addInterceptor(object : Interceptor {
     @Throws(IOException::class)
