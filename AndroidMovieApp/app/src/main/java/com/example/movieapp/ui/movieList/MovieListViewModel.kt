@@ -1,11 +1,10 @@
-package com.example.movieapp.ui
+package com.example.movieapp.ui.movieList
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.movieapp.api.MovieApi
-import com.example.movieapp.api.MovieApiService
 import com.example.movieapp.models.Movie
 import com.example.movieapp.models.MovieResponse
 import retrofit2.Call
@@ -21,15 +20,10 @@ class MovieListViewModel : ViewModel() {
         get() = _movies
 
     init {
-        _response.value = "Star wars"
-        Log.i("MovieListViewModel", "MovieListViewModel created!")
-        Log.i("MovieListViewModel", _response.value.toString())
         GetPopularMovies()
     }
 
     private fun GetPopularMovies(){
-        Log.i("GetPopularMovies", "Get popular movies from API!")
-
         MovieApi.retrofitService.getPopularMovies().enqueue(object: Callback<MovieResponse>{
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                 _response.value = "Erreur : " + t.message
@@ -46,6 +40,5 @@ class MovieListViewModel : ViewModel() {
             }
 
         })
-
     }
 }

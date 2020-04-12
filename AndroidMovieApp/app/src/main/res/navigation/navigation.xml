@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
-app:startDestination="@id/movieList">
-<fragment
-    android:id="@+id/movieList"
-    android:name="com.example.movieapp.ui.MovieList"
-    android:label="MovieList" />
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    app:startDestination="@id/movieList">
+
+    <fragment
+        android:id="@+id/movieList"
+        android:name="com.example.movieapp.ui.movieList.MovieList"
+        android:label="MovieList" >
+        <action
+            android:id="@+id/action_movieList_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetail"
+        android:name="com.example.movieapp.ui.movieDetail.MovieDetail"
+        android:label="MovieDetail" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

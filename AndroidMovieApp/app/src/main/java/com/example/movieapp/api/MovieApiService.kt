@@ -1,6 +1,7 @@
 package com.example.movieapp.api
 
 import com.example.movieapp.models.Movie
+import com.example.movieapp.models.MovieDetail
 import com.example.movieapp.models.MovieResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -12,6 +13,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import java.io.IOException
 
 
@@ -73,6 +75,9 @@ private val retrofit = Retrofit.Builder()
 interface MovieApiService {
     @GET("movie/popular")
     fun getPopularMovies(): Call<MovieResponse>
+
+    @GET("movie/{movieId}?language=fr-FR")
+    fun GetMovieDetail(@Path("movieId") movieId:Int): Call<MovieDetail>
 
 }
 
