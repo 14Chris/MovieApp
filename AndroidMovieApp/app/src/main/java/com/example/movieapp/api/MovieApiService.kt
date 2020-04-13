@@ -14,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 import java.io.IOException
 
 
@@ -73,8 +74,14 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface MovieApiService {
-    @GET("movie/popular")
-    fun getPopularMovies(): Call<MovieResponse>
+    @GET("movie/popular?language=fr-FR&region=FR")
+    fun GetPopularMovies(@Query("page") page: Int): Call<MovieResponse>
+
+    @GET("movie/upcoming?language=fr-FR&region=FR")
+    fun GetUpcomingMovies(): Call<MovieResponse>
+
+    @GET("movie/now_playing?language=fr-FR&region=FR")
+    fun GetNewMovies(): Call<MovieResponse>
 
     @GET("movie/{movieId}?language=fr-FR")
     fun GetMovieDetail(@Path("movieId") movieId:Int): Call<MovieDetail>

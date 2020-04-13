@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
-    app:startDestination="@id/movieList">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/movieList"
-        android:name="com.example.movieapp.ui.movieList.MovieList"
+        android:id="@+id/popularMovies"
+        android:name="com.example.movieapp.ui.movieList.PopularMovies"
         android:label="MovieList" >
         <action
             android:id="@+id/action_movieList_to_movieDetail"
@@ -18,5 +18,16 @@
         <argument
             android:name="movieId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.movieapp.ui.home.Home"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_home_to_movieDetail"
+            app:destination="@id/movieDetail" />
+        <action
+            android:id="@+id/action_home_to_popularMovies"
+            app:destination="@id/popularMovies" />
     </fragment>
 </navigation>

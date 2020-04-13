@@ -11,7 +11,7 @@ import com.example.movieapp.R
 import com.example.movieapp.models.Movie
 
 
-class MovieAdapter() : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class VerticalMovieAdapter() : RecyclerView.Adapter<VerticalMovieAdapter.ViewHolder>() {
 
     var onItemClick: ((Movie) -> Unit)? = null
 

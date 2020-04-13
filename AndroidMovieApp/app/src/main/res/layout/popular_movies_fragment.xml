@@ -5,13 +5,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.movieapp.ui.movieList.MovieListViewModel" />
+            type="com.example.movieapp.ui.movieList.PopularMoviesViewModel" />
     </data>
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.movieList.MovieList"
+    tools:context=".ui.movieList.PopularMovies"
     android:orientation="vertical"
     android:background="@color/darkBackground"
     >
@@ -21,16 +21,16 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/roboto_mono"
-        android:text="Movies"
+        android:text="@string/popular_movies_label"
         android:textColor="@android:color/white"
         android:textSize="24sp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movie_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+    android:id="@+id/movie_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    />
 
 </LinearLayout>
 </layout>

@@ -8,16 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movieapp.R
-import com.example.movieapp.databinding.MovieListFragmentBinding
-import com.example.movieapp.ui.movieDetail.MovieDetail
+import com.example.movieapp.databinding.PopularMoviesFragmentBinding
 
-class MovieList : Fragment() {
+class PopularMovies : Fragment() {
 
-    private lateinit var viewModel: MovieListViewModel
+    private lateinit var viewModel: PopularMoviesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,14 +22,14 @@ class MovieList : Fragment() {
     ): View? {
 
         // Inflate view and obtain an instance of the binding class
-        val binding = MovieListFragmentBinding.inflate(inflater)
+        val binding = PopularMoviesFragmentBinding.inflate(inflater)
         binding.setLifecycleOwner(this)
 
-        viewModel = ViewModelProviders.of(this).get(MovieListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(PopularMoviesViewModel::class.java)
 
         binding.viewModel = viewModel
 
-        val adapter = MovieAdapter()
+        val adapter = VerticalMovieAdapter()
         binding.movieList.adapter = adapter
         binding.movieList.setLayoutManager(LinearLayoutManager(context));
 
@@ -53,7 +50,7 @@ class MovieList : Fragment() {
     }
 
     fun ShowMovieDetail(id: Int){
-        val action = MovieListDirections.actionMovieListToMovieDetail(id)
+        val action = PopularMoviesDirections.actionMovieListToMovieDetail(id)
         this.findNavController().navigate(action)
     }
 }

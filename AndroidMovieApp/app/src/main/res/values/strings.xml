@@ -3,4 +3,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_label">Home</string>
+    <string name="storyline_label">Storyline</string>
+    <string name="new_movies_label">New</string>
+    <string name="popular_movies_label">Popular</string>
+    <string name="coming_soon_movies_label">Coming soon</string>
 </resources>
