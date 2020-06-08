@@ -62,9 +62,6 @@ class VerticalMovieAdapter() : RecyclerView.Adapter<VerticalMovieAdapter.ViewHol
                 onItemClick?.invoke(data[adapterPosition])
             }
         }
-
     }
-
-
 }
 

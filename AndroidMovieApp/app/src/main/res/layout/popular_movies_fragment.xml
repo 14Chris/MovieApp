@@ -5,13 +5,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.movieapp.ui.movieList.PopularMoviesViewModel" />
+            type="com.example.movieapp.ui.movieList.popular.PopularMoviesViewModel" />
     </data>
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.movieList.PopularMovies"
+    tools:context=".ui.movieList.popular.PopularMovies"
     android:orientation="vertical"
     android:background="@color/darkBackground"
     >

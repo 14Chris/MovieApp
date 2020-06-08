@@ -17,13 +17,13 @@ class Home : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?): View? {
+
         // Inflate view and obtain an instance of the binding class
         val binding = HomeFragmentBinding.inflate(inflater)
-        binding.setLifecycleOwner(this)
+
+        binding.lifecycleOwner = this
 
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
@@ -31,15 +31,11 @@ class Home : Fragment() {
 
         val newMoviesAdapter = HorizontalMovieAdapter()
         binding.newMoviesList.adapter = newMoviesAdapter
-        binding.newMoviesList.setLayoutManager(
-            LinearLayoutManager(
-                context,
-                LinearLayoutManager.HORIZONTAL,
-                false
-            )
+        binding.newMoviesList.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.HORIZONTAL,
+            false
         )
-
-
 
         viewModel.newMovies.observe(viewLifecycleOwner, Observer {
             it?.let {
@@ -99,15 +95,17 @@ class Home : Fragment() {
             ShowMovieDetail(movie.id)
         }
 
-        binding.moreNewMovies.setOnClickListener({
+        binding.moreNewMovies.setOnClickListener {
+            ShowNewMovies()
+        }
 
-        })
-
-        binding.morePopularMovies.setOnClickListener({
+        binding.morePopularMovies.setOnClickListener {
             ShowPopularMovies()
-        })
+        }
 
-        binding.moreUpcomingMovies.setOnClickListener({})
+        binding.moreUpcomingMovies.setOnClickListener {
+            ShowUpcomingMovies()
+        }
 
         return binding.root
     }
@@ -120,6 +118,16 @@ class Home : Fragment() {
 
     fun ShowPopularMovies() {
         val action = HomeDirections.actionHomeToPopularMovies()
+        this.findNavController().navigate(action)
+    }
+
+    fun ShowUpcomingMovies() {
+        val action = HomeDirections.actionHomeToComingMovies()
+        this.findNavController().navigate(action)
+    }
+
+    fun ShowNewMovies() {
+        val action = HomeDirections.actionHomeToNewMovies()
         this.findNavController().navigate(action)
     }
 }

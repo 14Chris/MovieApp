@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/home">
 
     <fragment
         android:id="@+id/popularMovies"
-        android:name="com.example.movieapp.ui.movieList.PopularMovies"
+        android:name="com.example.movieapp.ui.movieList.popular.PopularMovies"
         android:label="MovieList" >
         <action
             android:id="@+id/action_movieList_to_movieDetail"
@@ -29,5 +31,32 @@
         <action
             android:id="@+id/action_home_to_popularMovies"
             app:destination="@id/popularMovies" />
+        <action
+            android:id="@+id/action_home_to_comingMovies"
+            app:destination="@id/comingMovies" />
+        <action
+            android:id="@+id/action_home_to_newMovies"
+            app:destination="@id/newMovies" />
     </fragment>
+    <fragment
+        android:id="@+id/comingMovies"
+        android:name="com.example.movieapp.ui.movieList.coming.ComingMovies"
+        android:label="ComingMovies" >
+        <action
+            android:id="@+id/action_comingMovies_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/newMovies"
+        android:name="com.example.movieapp.ui.movieList.news.NewMovies"
+        android:label="NewMovies" >
+        <action
+            android:id="@+id/action_newMovies_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.movieapp.ui.search.Search"
+        android:label="search_fragment"
+        tools:layout="@layout/search_fragment" />
 </navigation>

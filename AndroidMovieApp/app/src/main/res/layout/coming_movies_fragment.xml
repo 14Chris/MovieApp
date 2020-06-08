@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.movieapp.ui.movieList.coming.ComingMoviesViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.movieList.coming.ComingMovies"
+        android:orientation="vertical"
+        android:background="@color/darkBackground"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/roboto_mono"
+            android:text="@string/coming_movies_label"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movie_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+</layout>

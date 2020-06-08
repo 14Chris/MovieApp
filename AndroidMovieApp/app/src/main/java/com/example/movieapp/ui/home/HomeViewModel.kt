@@ -32,13 +32,13 @@ class HomeViewModel : ViewModel() {
 
 
     init{
-        GetPopularMovies()
-        GetNewMovies()
-        GetUpcomingMovies()
+        GetPopularMovies(1)
+        GetNewMovies(1)
+        GetUpcomingMovies(1)
     }
 
-    fun GetPopularMovies(){
-        MovieApi.retrofitService.GetPopularMovies().enqueue(object: Callback<MovieResponse> {
+    fun GetPopularMovies(page: Int){
+        MovieApi.retrofitService.GetPopularMovies(page).enqueue(object: Callback<MovieResponse> {
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                 _response.value = "Erreur : " + t.message
                 Log.i("API Movies error", t.message)
@@ -54,8 +54,8 @@ class HomeViewModel : ViewModel() {
         })
     }
 
-    fun GetNewMovies(){
-        MovieApi.retrofitService.GetNewMovies().enqueue(object: Callback<MovieResponse> {
+    fun GetNewMovies(page: Int){
+        MovieApi.retrofitService.GetNewMovies(page).enqueue(object: Callback<MovieResponse> {
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                 _response.value = "Erreur : " + t.message
                 Log.i("API Movies error", t.message)
@@ -71,8 +71,8 @@ class HomeViewModel : ViewModel() {
         })
     }
 
-    fun GetUpcomingMovies(){
-        MovieApi.retrofitService.GetUpcomingMovies().enqueue(object: Callback<MovieResponse> {
+    fun GetUpcomingMovies(page: Int){
+        MovieApi.retrofitService.GetUpcomingMovies(page).enqueue(object: Callback<MovieResponse> {
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                 _response.value = "Erreur : " + t.message
                 Log.i("API Movies error", t.message)

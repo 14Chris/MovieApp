@@ -31,38 +31,6 @@ var client = OkHttpClient.Builder().addInterceptor(object : Interceptor {
     }
 }).build()
 
-//
-///**
-// * A retrofit service to fetch a devbyte playlist.
-// */
-//interface MovieApiService {
-//    @GET()
-//    fun getMovies(): Call<List<Movie>>
-//
-//    @GET("movie/popular")
-//    fun getPopularMovies(): Call<String>
-//}
-//
-///**
-// * Main entry point for network access. Call like `MovieAppNetwork.movieApi...`
-// */
-//object MovieAppNetwork {
-//    private val moshi = Moshi.Builder()
-//        .add(KotlinJsonAdapterFactory())
-//        .build()
-//
-//    // Configure retrofit to parse JSON and use coroutines
-//    private val retrofit = Retrofit.Builder()
-//        .addConverterFactory(MoshiConverterFactory.create(moshi))
-//        .baseUrl(BASE_URL)
-//        .build()
-//
-//    val movieApi = retrofit.create(MovieApiService::class.java)
-//
-//}
-//
-
-
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
@@ -78,10 +46,10 @@ interface MovieApiService {
     fun GetPopularMovies(@Query("page") page: Int): Call<MovieResponse>
 
     @GET("movie/upcoming?language=fr-FR&region=FR")
-    fun GetUpcomingMovies(): Call<MovieResponse>
+    fun GetUpcomingMovies(@Query("page") page: Int): Call<MovieResponse>
 
     @GET("movie/now_playing?language=fr-FR&region=FR")
-    fun GetNewMovies(): Call<MovieResponse>
+    fun GetNewMovies(@Query("page") page: Int): Call<MovieResponse>
 
     @GET("movie/{movieId}?language=fr-FR")
     fun GetMovieDetail(@Path("movieId") movieId:Int): Call<MovieDetail>

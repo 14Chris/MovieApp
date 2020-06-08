@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout>
-
     <data>
 
     </data>
@@ -11,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/darkBackground">
+        android:background="@color/darkBackground"
+        android:layout_marginBottom="25dp">
 
         <ImageView
             android:id="@+id/movie_image"

@@ -8,4 +8,5 @@
     <string name="new_movies_label">New</string>
     <string name="popular_movies_label">Popular</string>
     <string name="coming_soon_movies_label">Coming soon</string>
+    <string name="coming_movies_label">Coming movies</string>
 </resources>
