@@ -54,6 +54,9 @@ interface MovieApiService {
     @GET("movie/{movieId}?language=fr-FR")
     fun GetMovieDetail(@Path("movieId") movieId:Int): Call<MovieDetail>
 
+    @GET("search/movie?language=fr-FR")
+    fun SearchMovie(@Query("query") search:String, @Query("page") page: Int): Call<MovieResponse>
+
 }
 
 object MovieApi {

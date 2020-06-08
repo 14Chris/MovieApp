@@ -58,5 +58,9 @@
         android:id="@+id/search"
         android:name="com.example.movieapp.ui.search.Search"
         android:label="search_fragment"
-        tools:layout="@layout/search_fragment" />
+        tools:layout="@layout/search_fragment" >
+        <action
+            android:id="@+id/action_search_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
 </navigation>
