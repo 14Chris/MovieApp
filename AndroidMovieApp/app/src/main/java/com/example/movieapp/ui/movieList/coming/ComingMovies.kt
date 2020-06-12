@@ -46,6 +46,7 @@ class ComingMovies : Fragment() {
             }
         })
 
+
         adapter.onItemClick = { movie ->
             // do something with your item
             Log.d("Movie clicked", movie.id.toString())

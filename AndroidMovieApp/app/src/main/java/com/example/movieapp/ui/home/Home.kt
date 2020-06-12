@@ -49,6 +49,10 @@ class Home : Fragment() {
             ShowMovieDetail(movie.id)
         }
 
+        newMoviesAdapter.onMoreButtonClick = {
+            ShowNewMovies()
+        }
+
         val popularMoviesAdapter = HorizontalMovieAdapter()
         binding.popularMoviesList.adapter = popularMoviesAdapter
         binding.popularMoviesList.setLayoutManager(
@@ -70,6 +74,10 @@ class Home : Fragment() {
             // do something with your item
             Log.d("Movie clicked", movie.id.toString())
             ShowMovieDetail(movie.id)
+        }
+
+        popularMoviesAdapter.onMoreButtonClick = {
+            ShowPopularMovies()
         }
 
         val upcomingMoviesAdapter = HorizontalMovieAdapter()
@@ -95,15 +103,7 @@ class Home : Fragment() {
             ShowMovieDetail(movie.id)
         }
 
-        binding.moreNewMovies.setOnClickListener {
-            ShowNewMovies()
-        }
-
-        binding.morePopularMovies.setOnClickListener {
-            ShowPopularMovies()
-        }
-
-        binding.moreUpcomingMovies.setOnClickListener {
+        upcomingMoviesAdapter.onMoreButtonClick = {
             ShowUpcomingMovies()
         }
 

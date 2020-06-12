@@ -48,11 +48,6 @@
 
                 </androidx.recyclerview.widget.RecyclerView>
 
-                <Button
-                    android:id="@+id/more_new_movies"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show more"></Button>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -70,12 +65,6 @@
 
                 </androidx.recyclerview.widget.RecyclerView>
 
-                <Button
-                    android:id="@+id/more_popular_movies"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show more"></Button>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -88,12 +77,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"></androidx.recyclerview.widget.RecyclerView>
-
-                <Button
-                    android:id="@+id/more_upcoming_movies"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show more"></Button>
 
             </LinearLayout>
 

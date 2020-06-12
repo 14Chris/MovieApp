@@ -43,16 +43,16 @@ class SearchViewModel : ViewModel() {
             }
 
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                var responseMovies: MovieResponse = response.body()!!
-                _currentPage.value = responseMovies.page
+                if(response.body() != null){
+                    var responseMovies: MovieResponse = response.body()!!
+                    _currentPage.value = responseMovies.page
 
-                Log.i("API Movies size",responseMovies.results.size.toString())
+                    Log.i("API Movies size",responseMovies.results.size.toString())
 
-                _movies.value = ArrayList<Movie>()
-                _movies.value?.addAll(responseMovies.results)
-                _movies.notifyObserver()
-
-                _response.value = _movies.value?.get(0)?.title
+                    _movies.value = ArrayList<Movie>()
+                    _movies.value?.addAll(responseMovies.results)
+                    _movies.notifyObserver()
+                }
             }
         })
     }
