@@ -14,6 +14,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        DaggerAppComponent.builder()
+            .appModule(AppModule(application))
+            .roomModule(RoomModule(application))
+            .build()
+            .inject(this);
+
         bottomNavigationView = findViewById(R.id.activity_main_bottom_navigation)
 
         bottomNavigationView.setupWithNavController(Navigation.findNavController(this, R.id.my_nav_host_fragment))

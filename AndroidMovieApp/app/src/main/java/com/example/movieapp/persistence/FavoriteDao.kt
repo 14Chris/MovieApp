@@ -12,11 +12,11 @@ abstract class FavoriteDao {
     @Insert
     abstract fun addData(favoriteList: FavoriteList?)
 
-    @Query("select * from favoritelist")
+    @Query("select * from FavoriteList")
     abstract fun getFavoriteData(): List<FavoriteList?>?
 
-    @Query("SELECT EXISTS (SELECT 1 FROM favoritelist WHERE id=:id)")
-    abstract fun isFavorite(id: Int): Int
+    @Query("SELECT EXISTS (SELECT 1 FROM FavoriteList WHERE MovieId=:id)")
+    abstract fun isFavorite(id: Int): Boolean
 
     @Delete
     abstract fun delete(favoriteList: FavoriteList?)

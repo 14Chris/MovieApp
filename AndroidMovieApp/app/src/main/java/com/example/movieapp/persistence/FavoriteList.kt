@@ -5,15 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "favoritelist")
-class FavoriteList {
-    @PrimaryKey
-    var id = 0
-
-    @ColumnInfo(name = "image")
-    var image: String? = null
-
-    @ColumnInfo(name = "prname")
-    var name: String? = null
-
-}
+@Entity
+data class FavoriteList(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "MovieId")
+    val movieId: Int
+)

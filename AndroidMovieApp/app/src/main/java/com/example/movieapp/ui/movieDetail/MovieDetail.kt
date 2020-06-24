@@ -5,14 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.ObservableBoolean
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import com.example.movieapp.RoomModule_ProvidesProductDaoFactory.providesProductDao
 import com.example.movieapp.databinding.MovieDetailFragmentBinding
+import com.example.movieapp.persistence.AppDatabase
 
 
 class MovieDetail() : Fragment() {
 
     private lateinit var viewModel: MovieDetailViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,5 +43,13 @@ class MovieDetail() : Fragment() {
         return binding.root
     }
 
+    fun isFavorite(): Boolean {
+        val movie = viewModel.movie.value
+        return if (movie != null) {
+            favoriteDao().isFavorite(movie.id)
+        } else{
+            false
+        }
 
+    }
 }
