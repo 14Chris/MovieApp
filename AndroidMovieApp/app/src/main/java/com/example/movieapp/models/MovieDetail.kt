@@ -3,8 +3,8 @@ package com.example.movieapp.models
 data class MovieDetail(val id: Int, val title:String,
                        val release_date: String,
                        val overview:String,
-                       private val vote_average: Float,
-                       private val runtime: Int,
+                       val vote_average: Float,
+                       val runtime: Int,
                        val backdrop_path: String,
                        val poster_path: String) {
     val vote: String

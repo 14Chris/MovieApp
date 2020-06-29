@@ -54,11 +54,11 @@ class MovieDetailViewModel(val favoriteDao: FavoriteDao, private val movieId:Int
 
             //If movie is fav
             if (fav) {
-                favoriteDao.delete(FavoriteList(movie.value!!.id))
+                favoriteDao.delete(movie.value!!.id)
             }
             //If movie isn't fav
             else {
-                favoriteDao.addData(FavoriteList(movie.value!!.id))
+                favoriteDao.addData(FavoriteList(movie.value!!.id, movie.value!!.title, movie.value!!.release_date, movie.value!!.overview, movie.value!!.vote_average, movie.value!!.poster_path))
             }
             _movieFav.postValue(!fav)
         }

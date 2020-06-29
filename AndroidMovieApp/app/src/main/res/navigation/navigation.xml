@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_home_to_newMovies"
             app:destination="@id/newMovies" />
+        <action
+            android:id="@+id/action_home_to_favorites"
+            app:destination="@id/favorites" />
     </fragment>
     <fragment
         android:id="@+id/comingMovies"
@@ -61,6 +64,14 @@
         tools:layout="@layout/search_fragment" >
         <action
             android:id="@+id/action_search_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.example.movieapp.ui.favorites.Favorites"
+        android:label="Favorites" >
+        <action
+            android:id="@+id/action_favorites_to_movieDetail"
             app:destination="@id/movieDetail" />
     </fragment>
 </navigation>
