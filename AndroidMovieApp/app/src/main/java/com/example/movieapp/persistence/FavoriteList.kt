@@ -6,8 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity
-data class FavoriteList(
-    @PrimaryKey val id: Int,
-    @ColumnInfo(name = "MovieId")
-    val movieId: Int
-)
+class FavoriteList(var movieId:Int){
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}

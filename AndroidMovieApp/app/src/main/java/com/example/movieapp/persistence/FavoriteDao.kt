@@ -8,7 +8,6 @@ import androidx.room.Query
 
 @Dao
 abstract class FavoriteDao {
-
     @Insert
     abstract fun addData(favoriteList: FavoriteList?)
 

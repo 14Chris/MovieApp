@@ -1,7 +1,6 @@
 package com.example.movieapp
 
 import android.widget.ImageView
-import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -22,3 +21,8 @@ fun bindBackgroundImage(imgView: ImageView, imgUrl: String?) {
             .into(imgView)
     }
 }
+
+//@BindingAdapter("android:src")
+//fun setImageViewResource(imageView: ImageView, resource: Int) {
+//    imageView.setImageResource(resource)
+//}

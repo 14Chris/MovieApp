@@ -4,21 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.databinding.ObservableBoolean
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import com.example.movieapp.RoomModule_ProvidesProductDaoFactory.providesProductDao
 import com.example.movieapp.databinding.MovieDetailFragmentBinding
 import com.example.movieapp.persistence.AppDatabase
 
 
-class MovieDetail() : Fragment() {
+
+class MovieDetail(): Fragment() {
 
     private lateinit var viewModel: MovieDetailViewModel
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,25 +26,33 @@ class MovieDetail() : Fragment() {
         val binding = MovieDetailFragmentBinding.inflate(inflater)
         binding.setLifecycleOwner(this)
 
+        val application = requireNotNull(this.activity).application
+
+        var favoriteDao = AppDatabase.getInstance(application).favoriteDao()
+
+
+
         viewModel = ViewModelProviders.of(
             this,
-            MovieDetailViewModelFactory(args.movieId)
+            MovieDetailViewModelFactory(favoriteDao, args.movieId)
         ).get(
             MovieDetailViewModel::class.java
         )
 
         binding.viewModel = viewModel
 
+//        binding.movieFav.setOnClickListener(View.OnClickListener {
+//            viewModel.run { FavButtonClicked() }
+//            var favButton = binding.movieFav
+//
+//            if(viewModel.movieFav){
+//                favButton.setImageResource(R.drawable.ic_fav);
+//            }
+//            else{
+//                favButton.setImageResource(R.drawable.ic_fav_border);
+//            }
+//        })
         return binding.root
     }
 
-    fun isFavorite(): Boolean {
-        val movie = viewModel.movie.value
-        return if (movie != null) {
-            favoriteDao().isFavorite(movie.id)
-        } else{
-            false
-        }
-
-    }
 }
