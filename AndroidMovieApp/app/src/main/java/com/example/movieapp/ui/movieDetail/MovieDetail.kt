@@ -41,17 +41,6 @@ class MovieDetail(): Fragment() {
 
         binding.viewModel = viewModel
 
-//        binding.movieFav.setOnClickListener(View.OnClickListener {
-//            viewModel.run { FavButtonClicked() }
-//            var favButton = binding.movieFav
-//
-//            if(viewModel.movieFav){
-//                favButton.setImageResource(R.drawable.ic_fav);
-//            }
-//            else{
-//                favButton.setImageResource(R.drawable.ic_fav_border);
-//            }
-//        })
         return binding.root
     }
 

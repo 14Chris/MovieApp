@@ -17,6 +17,6 @@ abstract class FavoriteDao {
     @Query("SELECT EXISTS (SELECT 1 FROM FavoriteList WHERE MovieId=:id)")
     abstract fun isFavorite(id: Int): Boolean
 
-    @Delete
-    abstract fun delete(favoriteList: FavoriteList?)
+    @Query("DELETE FROM FavoriteList WHERE MovieId=:id")
+    abstract fun delete(id: Int)
 }
